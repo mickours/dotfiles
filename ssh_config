@@ -1,0 +1,20 @@
+# Keep session alive do avoid disconnection
+Host *
+  ServerAliveInterval 60
+
+# Tunnel example
+Host myTunnel
+  user myuser
+  hostname example.com
+  ForwardAgent yes
+
+Host node?*
+  ProxyCommand ssh myTunnel -W %h:%p
+  User root
+
+# Pass through firewall to my server
+Host myServer
+   User myuser
+   Port 443
+   Hostname my.server.com
+   ProxyCommand corkscrew proxy.example.fr 80 %h %p

@@ -1,0 +1,5 @@
+[user]
+	email = michael.mercier@{email_domain}
+	name = Mercier Michael
+[push]
+	default = simple
