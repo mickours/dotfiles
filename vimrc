@@ -173,10 +173,10 @@ vmap <C-c> "+y
 " type jj to extract from insert mode
 imap jj <Esc>
 
-" Make sur the backup files are not spread out anywhere
-set backup
-set backupdir=~/.vim/
-set directory=~/.vim/
+"" Make sur the backup files are not spread out anywhere
+"set backup
+"set backupdir=~/.vim/
+"set directory=~/.vim/
 
 " for a better leader
 let mapleader='!'
