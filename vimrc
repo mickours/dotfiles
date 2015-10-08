@@ -116,10 +116,7 @@ set wildmode=list:longest,full
 
 set laststatus=2    " Activate Status bar even without split
 
-" This is totally awesome - remap qq to escape in insert mode.  You'll never type qq anyway, so it's great!
-inoremap qq <Esc>
-
-filetype plugin indent on     " required! 
+filetype plugin indent on     " required!
 syntax on
 "
 " Brief help
@@ -170,14 +167,16 @@ let g:tex_flavor = "latex"
 "set spell
 set spelllang=en,fr
 
-" remap some usefull little things
+" Ctr-c is actually copying on the X clipboard
 vmap <C-c> "+y
+
+" type jj to extract from insert mode
 imap jj <Esc>
 
 " Make sur the backup files are not spread out anywhere
-"set backup
-"set backupdir=~/.vim/backup
-"set directory=~/.vim/tmp
+set backup
+set backupdir=~/.vim/
+set directory=~/.vim/
 
 " for a better leader
 let mapleader='!'
@@ -185,3 +184,16 @@ let mapleader='!'
 " NERDTree toggle with <F2>
 map <F2> :NERDTreeToggle<CR>
 
+" Easy pane navigation with Alt+arrows
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
+" bind Ctrl-Arrow to word move
+nnoremap <silent> <C-Right> w
+nnoremap <silent> <C-Left> b
+
+" more natural split placement
+set splitbelow
+set splitright
