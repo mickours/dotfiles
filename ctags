@@ -1,0 +1,8 @@
+# General Options
+--recurse=yes
+--tag-relative=yes
+--exclude=*/build/*
+--exclude=.git
+
+# Python
+--python-kinds=-iv
