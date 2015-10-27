@@ -1,1 +1,2 @@
-alias maj="yaourt -Suya"
+alias maj='yaourt -Suya'
+alias gr='grep --color=auto -Rn'

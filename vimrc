@@ -28,6 +28,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'klen/python-mode'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'xolox/vim-easytags'
+Bundle 'xolox/vim-misc'
+Bundle 'majutsushi/tagbar'
 " Bundle 'Valloric/YouCompleteMe'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -197,3 +200,6 @@ nnoremap <silent> <C-Left> b
 " more natural split placement
 set splitbelow
 set splitright
+
+" Turn off rope from Python plugin
+let g:pymode_rope = 0
