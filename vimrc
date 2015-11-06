@@ -31,6 +31,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'xolox/vim-easytags'
 Bundle 'xolox/vim-misc'
 Bundle 'majutsushi/tagbar'
+Bundle 'Rykka/riv.vim'
 " Bundle 'Valloric/YouCompleteMe'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}

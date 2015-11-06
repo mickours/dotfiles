@@ -1,2 +1,12 @@
+# Archlinux update
 alias maj='yaourt -Suya'
+
+# Start ranger file navigator
+alias r='ranger'
+
+# search for something
 alias gr='grep --color=auto -Rn'
+
+# Add local gem to PATH
+export PATH=$PATH:/home/mercierm/.gem/ruby/2.2.0/bin
+
