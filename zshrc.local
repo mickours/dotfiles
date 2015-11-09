@@ -1,5 +1,5 @@
 # Use Grml zsh config with git unstash chages shown
-source ~/.config/zsh/grml-config
+#source ~/.config/zsh/grml-config
 
 # Archlinux update
 alias maj='yaourt -Suya'

@@ -204,3 +204,13 @@ set splitright
 
 " Turn off rope from Python plugin
 let g:pymode_rope = 0
+
+""" Riv config
+" Change Riv leader from C-e to !
+let g:riv_global_leader = ';'
+
+" Dont fold evrytime I write
+let g:riv_fold_auto_update = 0
+
+" Let the blank line at the fold end
+let g:riv_fold_blank = 0
