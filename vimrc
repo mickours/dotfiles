@@ -1,5 +1,6 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
+set encoding=utf-8
 
 " Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
@@ -25,14 +26,19 @@ Bundle 'bling/vim-airline'
 Bundle 'scrooloose/syntastic'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
-Bundle 'klen/python-mode'
+" Bundle 'klen/python-mode'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'xolox/vim-easytags'
 Bundle 'xolox/vim-misc'
 Bundle 'majutsushi/tagbar'
 Bundle 'Rykka/riv.vim'
-" Bundle 'Valloric/YouCompleteMe'
+Bundle 'tmhedberg/SimpylFold'
+Bundle 'vim-scripts/indentpython.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'nvie/vim-flake8'
+Bundle 'tell-k/vim-autopep8'
+
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
@@ -186,7 +192,7 @@ imap jj <Esc>
 let mapleader='!'
 
 " NERDTree toggle with <F2>
-map <F2> :NERDTreeToggle<CR>
+map <leader><F2> :NERDTreeToggle<CR>
 
 " Easy pane navigation with Alt+arrows
 nmap <silent> <A-Up> :wincmd k<CR>
@@ -205,7 +211,7 @@ set splitright
 " Turn off rope from Python plugin
 let g:pymode_rope = 0
 
-""" Riv config
+""""""" Riv config
 " Change Riv leader from C-e to !
 let g:riv_global_leader = ';'
 
@@ -214,3 +220,40 @@ let g:riv_fold_auto_update = 0
 
 " Let the blank line at the fold end
 let g:riv_fold_blank = 0
+
+""""""" Python IDE config
+" Want to see the docstrings for folded code
+let g:SimpylFold_docstring_preview=1
+
+" YouCompleteMe customization
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" make it pretty
+let python_highlight_all=1
+
+"au BufNewFile,BufRead *.py
+"    \ set tabstop=4
+"    \ set softtabstop=4
+"    \ set shiftwidth=4
+"    \ set textwidth=79
+"    \ set expandtab
+"    \ set autoindent
+"    \ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+
