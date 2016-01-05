@@ -38,6 +38,7 @@ Bundle 'vim-scripts/indentpython.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'nvie/vim-flake8'
 Bundle 'tell-k/vim-autopep8'
+Bundle 'vim-latex/vim-latex'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -125,6 +126,8 @@ set wildmenu        " Cool tab completion stuff
 set wildmode=list:longest,full
 
 set laststatus=2    " Activate Status bar even without split
+
+set foldlevel=99    " Don't fold by default
 
 filetype plugin indent on     " required!
 syntax on
@@ -215,8 +218,9 @@ let g:pymode_rope = 0
 " Change Riv leader from C-e to !
 let g:riv_global_leader = ';'
 
-" Dont fold evrytime I write
+" Dont fold
 let g:riv_fold_auto_update = 0
+let g:riv_disable_folding = 0
 
 " Let the blank line at the fold end
 let g:riv_fold_blank = 0
@@ -225,19 +229,23 @@ let g:riv_fold_blank = 0
 " Want to see the docstrings for folded code
 let g:SimpylFold_docstring_preview=1
 
+" Set Flake8 option and map
+let g:flake8_show_in_gutter=1
+map <leader>f :call flake8#Flake8()<CR>
+
 " YouCompleteMe customization
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+"py << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"  execfile(activate_this, dict(__file__=activate_this))
+"EOF
 
 " make it pretty
 let python_highlight_all=1
