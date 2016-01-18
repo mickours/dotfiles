@@ -19,6 +19,7 @@ call vundle#rc()
 " My Bundles here:
 "
 " original repos on github
+Bundle 'vim-latex/vim-latex'
 Bundle 'kien/ctrlp.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'bronson/vim-trailing-whitespace'
@@ -38,7 +39,7 @@ Bundle 'vim-scripts/indentpython.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'nvie/vim-flake8'
 Bundle 'tell-k/vim-autopep8'
-Bundle 'vim-latex/vim-latex'
+Bundle 'chrisbra/csv.vim'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -119,6 +120,13 @@ set background=dark " When set to "dark", Vim will try to use colors that look
                     " good on a dark background. When set to "light", Vim will
                     " try to use colors that look good on a light background.
                     " Any other value is illegal.
+                    "
+"" better colors for menu in a dark theme
+highlight Pmenu ctermfg=Cyan ctermbg=Blue cterm=None guifg=Cyan guibg=DarkBlue
+highlight PmenuSel ctermfg=White ctermbg=Blue cterm=Bold guifg=White guibg=DarkBlue gui=Bold
+highlight PmenuSbar ctermbg=Cyan guibg=Cyan
+highlight PmenuThumb ctermfg=White guifg=White
+
 
 set mouse=a         " Enable the use of the mouse.
 
@@ -225,13 +233,17 @@ let g:riv_disable_folding = 0
 " Let the blank line at the fold end
 let g:riv_fold_blank = 0
 
+" Check spell for RST files
+autocmd BufNewFile,BufRead *.rst setlocal spell spelllang=en
+
 """"""" Python IDE config
 " Want to see the docstrings for folded code
 let g:SimpylFold_docstring_preview=1
 
 " Set Flake8 option and map
 let g:flake8_show_in_gutter=1
-map <leader>f :call flake8#Flake8()<CR>
+autocmd FileType python map <buffer> <leader>f :call Flake8()<CR>
+autocmd BufWritePost *.py call Flake8()
 
 " YouCompleteMe customization
 let g:ycm_autoclose_preview_window_after_completion=1
