@@ -40,6 +40,8 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'nvie/vim-flake8'
 Bundle 'tell-k/vim-autopep8'
 Bundle 'chrisbra/csv.vim'
+Bundle 'jceb/vim-orgmode'
+Bundle 'tpope/vim-speeddating'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
