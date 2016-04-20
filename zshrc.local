@@ -21,6 +21,5 @@ du -x --max-depth=1 | sort -rn | \
 # colored bar graph du
 alias d='mydu'
 
-
-# Add local gem to PATH
-export PATH=$PATH:/home/mercierm/.gem/ruby/2.2.0/bin
+# Add local gem to PATH (use only in --user-install mode)
+# export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
