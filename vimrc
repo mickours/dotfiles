@@ -42,6 +42,7 @@ Bundle 'tell-k/vim-autopep8'
 Bundle 'chrisbra/csv.vim'
 Bundle 'jceb/vim-orgmode'
 Bundle 'tpope/vim-speeddating'
+Bundle 'terryma/vim-multiple-cursors'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
