@@ -18,7 +18,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd
 
 # make links at home
-DOTFILES="tmux.conf vimrc zshrc.local ctags"
+DOTFILES="tmux.conf vimrc zshrc.local ctags python_startup.py"
 
 for files in $DOTFILES
 do

@@ -50,3 +50,11 @@ docker images -q --no-trunc --filter dangling=true | xargs --no-run-if-empty doc
 # Delete all dangling volumes.
 docker volume ls -qf dangling=true | xargs --no-run-if-empty docker volume rm
 }
+
+# Python startup script:
+export PYTHONSTARTUP=~/.python_startup.py
+
+# Permit line edit in vim :)
+autoload -U   edit-command-line
+zle -N        edit-command-line
+bindkey -v '^V' edit-command-line
