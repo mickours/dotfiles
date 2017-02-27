@@ -37,12 +37,13 @@ Bundle 'Rykka/riv.vim'
 Bundle 'tmhedberg/SimpylFold'
 Bundle 'vim-scripts/indentpython.vim'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'nvie/vim-flake8'
+" Bundle 'nvie/vim-flake8'
 Bundle 'tell-k/vim-autopep8'
 Bundle 'chrisbra/csv.vim'
 Bundle 'jceb/vim-orgmode'
 Bundle 'tpope/vim-speeddating'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'sk1418/HowMuch'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -139,6 +140,9 @@ set wildmode=list:longest,full
 set laststatus=2    " Activate Status bar even without split
 
 set foldlevel=99    " Don't fold by default
+
+set shell=/bin/sh   " Needed by https://github.com/vim-syntastic/syntastic/issues/1131
+
 
 filetype plugin indent on     " required!
 syntax on
@@ -265,18 +269,16 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " make it pretty
 let python_highlight_all=1
 
-"au BufNewFile,BufRead *.py
-"    \ set tabstop=4
-"    \ set softtabstop=4
-"    \ set shiftwidth=4
-"    \ set textwidth=79
-"    \ set expandtab
-"    \ set autoindent
-"    \ set fileformat=unix
-
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
+autocmd BufNewFile,BufRead *.py call SetPythonOptions()
+function SetPythonOptions()
+  setlocal tabstop=4
+  setlocal softtabstop=4
+  setlocal shiftwidth=4
+  setlocal textwidth=79
+  setlocal expandtab
+  setlocal autoindent
+  setlocal fileformat=unix
+  setlocal cc=80
+  highlight ColorColumn ctermbg=8
+endfunction
 
