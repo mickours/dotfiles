@@ -52,7 +52,7 @@ docker volume ls -qf dangling=true | xargs --no-run-if-empty docker volume rm
 }
 
 # Python startup script:
-export PYTHONSTARTUP=~/.python_startup.py
+#export PYTHONSTARTUP=~/.python_startup.py
 
 # Permit line edit in vim :)
 autoload -U   edit-command-line

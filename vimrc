@@ -44,6 +44,9 @@ Bundle 'jceb/vim-orgmode'
 Bundle 'tpope/vim-speeddating'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'sk1418/HowMuch'
+Bundle 'sjl/gundo.vim'
+Bundle 'LnL7/vim-nix'
+Bundle 'Chiel92/vim-autoformat'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -125,6 +128,9 @@ set background=dark " When set to "dark", Vim will try to use colors that look
                     " try to use colors that look good on a light background.
                     " Any other value is illegal.
                     "
+
+nnoremap gV `[v`]   " highlight last inserted text
+
 "" better colors for menu in a dark theme
 highlight Pmenu ctermfg=Cyan ctermbg=Blue cterm=None guifg=Cyan guibg=DarkBlue
 highlight PmenuSel ctermfg=White ctermbg=Blue cterm=Bold guifg=White guibg=DarkBlue gui=Bold
@@ -166,28 +172,6 @@ set showmode
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
-
-"autocmd FileType tex call Tex_config()
-
-
-"function Tex_config()
-    " global debug statement : can be printed by doing
-    "  "':call Tex_PrintDebug()'
- "   let g:Tex_Debug='1'
-
-    " listing Environnement
-  "  let g:Tex_Env_lstlisting="\\begin{lstlisting}[language=<++>, title=<++>]\<LF><++>\<LF>\\end{lstlisting}"
-
-    " define viewer
-   " let g:Tex_ViewRule_pdf='evince'
-    "let g:Tex_viewRule_dvi='evince'
-
-
-  "  let g:Tex_CompileRule_pdf='pdflatex "-interaction=nonstopmode $*'
-  "  let g:Tex_DefaultTargetFormat='pdf'
-  "  let g:Tex_MultipleCompileFormats='dvi,pdf'
-  "  let g:Tex_GotoError='1'
-"endfunction
 
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
@@ -249,8 +233,7 @@ let g:SimpylFold_docstring_preview=1
 
 " Set Flake8 option and map
 let g:flake8_show_in_gutter=1
-autocmd FileType python map <buffer> <leader>f :call Flake8()<CR>
-autocmd BufWritePost *.py call Flake8()
+"autocmd BufWritePost *.py call flake8#Flake8UnplaceMarkers()
 
 " YouCompleteMe customization
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -282,3 +265,5 @@ function SetPythonOptions()
   highlight ColorColumn ctermbg=8
 endfunction
 
+"autoformat
+noremap <Leader>f :Autoformat<CR><CR>
