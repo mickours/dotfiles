@@ -47,6 +47,7 @@ Bundle 'sk1418/HowMuch'
 Bundle 'sjl/gundo.vim'
 Bundle 'LnL7/vim-nix'
 Bundle 'Chiel92/vim-autoformat'
+Bundle 'jpalardy/vim-slime'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -267,3 +268,10 @@ endfunction
 
 "autoformat
 noremap <Leader>f :Autoformat<CR><CR>
+
+" Make slime works for Tmux
+let g:slime_target="tmux"
+let g:slime_default_config={"socket_name": split($TMUX, ",")[0], "target_pane": ":.2"}
+let g:slime_python_ipython=1
+
+
