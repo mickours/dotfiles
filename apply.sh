@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ################
 # Installation script for my config made for archlinux
 #
@@ -16,6 +16,9 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # go home...
 cd
+
+# install grml zsh config
+curl https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc > .zshrc
 
 # make links at home
 DOTFILES="tmux.conf vimrc zshrc.local ctags python_startup.py gitconfig"

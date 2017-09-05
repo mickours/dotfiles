@@ -55,6 +55,14 @@ docker volume ls -qf dangling=true | xargs --no-run-if-empty docker volume rm
 #export PYTHONSTARTUP=~/.python_startup.py
 
 # Permit line edit in vim :)
-autoload -U   edit-command-line
 zle -N        edit-command-line
 bindkey -v '^V' edit-command-line
+
+# Add GO path
+export GOPATH=/home/mmercier/Projects/go
+
+# Add local completion settings
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit
+compinit
+

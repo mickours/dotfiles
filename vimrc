@@ -36,7 +36,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'Rykka/riv.vim'
 Bundle 'tmhedberg/SimpylFold'
 Bundle 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 " Bundle 'nvie/vim-flake8'
 Bundle 'tell-k/vim-autopep8'
 Bundle 'chrisbra/csv.vim'
@@ -48,6 +48,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'LnL7/vim-nix'
 Bundle 'Chiel92/vim-autoformat'
 Bundle 'jpalardy/vim-slime'
+Bundle 'fatih/vim-go'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -271,7 +272,10 @@ noremap <Leader>f :Autoformat<CR><CR>
 
 " Make slime works for Tmux
 let g:slime_target="tmux"
-let g:slime_default_config={"socket_name": split($TMUX, ",")[0], "target_pane": ":.2"}
+if $TMUX
+  let g:slime_default_config={"socket_name": split($TMUX, ",")[0], "target_pane": ":.2"}
+endif
+
 let g:slime_python_ipython=1
 
 
