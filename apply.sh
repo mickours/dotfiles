@@ -35,6 +35,7 @@ done
 # import configs
 CONFIG_DIR="zsh"
 
+mkdir -p ~/.config
 for conf_dir in $CONFIG_DIR
 do
   rm -r ".config/$conf_dir" 2> /dev/null || true
