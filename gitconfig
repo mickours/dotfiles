@@ -1,6 +1,6 @@
 [user]
-  email = michael.mercier@inria.fr
-  name = Michael Mercier
+	email = michael.mercier@inria.fr
+	name = MERCIER Michael
 
 [alias]
   prune = fetch --prune
@@ -19,6 +19,12 @@
   # No need for a GUI - a nice, colorful, graphical representation
   # https://git-scm.com/docs/git-log
   # via https://medium.com/@payload.dd/thanks-for-the-git-st-i-will-use-this-4da5839a21a4
+
+	st = status
+  # Quicker status
+
+	l = log --pretty=format:'%C(auto,yellow)%h%C(auto,magenta) %C(auto,blue)%ad %C(auto,green)%aN %C(auto,reset)%s%C(auto)% gD%d' --graph --date=format:'%Y-%m-%d %H:%M:%S'
+  # Prettier logs
 
 [merge]
   ff = only
@@ -68,3 +74,7 @@
 [difftool "icdiff"]
   cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 
+[cola]
+	spellcheck = false
+[gui]
+	editor = vim
