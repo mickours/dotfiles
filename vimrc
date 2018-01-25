@@ -36,7 +36,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'Rykka/riv.vim'
 Bundle 'tmhedberg/SimpylFold'
 Bundle 'vim-scripts/indentpython.vim'
-" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 " Bundle 'nvie/vim-flake8'
 Bundle 'tell-k/vim-autopep8'
 Bundle 'chrisbra/csv.vim'
@@ -278,4 +278,15 @@ endif
 
 let g:slime_python_ipython=1
 
+" Better colors for spelling errors
+hi clear SpellBad
+if version >= 700
+  hi SpellBad   guisp=red    gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=240 term=underline cterm=underline
+  hi SpellCap   guisp=yellow gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=58 term=underline cterm=underline
+  hi SpellRare  guisp=blue   gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=58 term=underline cterm=underline
+  hi SpellLocal guisp=orange gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=58 term=underline cterm=underline
+endif
 
+" Add a line without going to insert mode
+"nmap <S-Enter> OO<Esc>
+"nmap <CR> o<Esc>

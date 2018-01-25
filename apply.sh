@@ -21,7 +21,7 @@ cd
 curl https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc > .zshrc
 
 # make links at home
-DOTFILES="tmux.conf vimrc zshrc.local ctags python_startup.py gitconfig"
+DOTFILES="tmux.conf vimrc zshrc.local ctags python_startup.py gitconfig inputrc"
 
 for files in $DOTFILES
 do
