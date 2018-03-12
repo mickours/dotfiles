@@ -291,3 +291,13 @@ endif
 " Add a line without going to insert mode
 "nmap <S-Enter> OO<Esc>
 "nmap <CR> o<Esc>
+
+"rainbowparentheses
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+let blacklist = ['hs','omlet','ml','mli']
+au Syntax * if index(blacklist, &ft) < 0 | RainbowParenthesesLoadBraces
+au VimEnter * if index(blacklist, &ft) < 0 |  RainbowParenthesesToggle
+au Syntax * if index(blacklist, &ft) < 0 | RainbowParenthesesLoadRound
+au Syntax * if index(blacklist, &ft) < 0 | RainbowParenthesesLoadSquare
+
