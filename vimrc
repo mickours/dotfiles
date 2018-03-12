@@ -97,7 +97,8 @@ set ignorecase      " Ignore case in search patterns.
 set smartcase       " Override the 'ignorecase' option if the search pattern
                     " contains upper case characters.
 
-set backspace=4     " Influences the working of <BS>, <Del>, CTRL-W
+set backspace=indent,eol,start    
+                    " Influences the working of <BS>, <Del>, CTRL-W
                     " and CTRL-U in Insert mode. This is a list of items,
                     " separated by commas. Each item allows a way to backspace
                     " over something.
