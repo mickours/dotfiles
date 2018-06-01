@@ -301,3 +301,7 @@ au VimEnter * if index(blacklist, &ft) < 0 |  RainbowParenthesesToggle
 au Syntax * if index(blacklist, &ft) < 0 | RainbowParenthesesLoadRound
 au Syntax * if index(blacklist, &ft) < 0 | RainbowParenthesesLoadSquare
 
+" Grammar check sortcuts
+nmap <Leader>i <Plug>(grammarous-fixit)<Plug>(grammarous-move-to-next-error)
+nmap <Leader>n <Plug>(grammarous-move-to-next-error)
+nmap <Leader>o <Plug>(grammarous-open-info-window)
