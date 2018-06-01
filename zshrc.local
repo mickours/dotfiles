@@ -66,3 +66,6 @@ fpath=(~/.zsh/completions $fpath)
 autoload -U compinit
 compinit
 
+# import direnv hook
+eval "$(direnv hook zsh)"
+
