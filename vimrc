@@ -97,20 +97,8 @@ set ignorecase      " Ignore case in search patterns.
 set smartcase       " Override the 'ignorecase' option if the search pattern
                     " contains upper case characters.
 
-set backspace=indent,eol,start    
-                    " Influences the working of <BS>, <Del>, CTRL-W
-                    " and CTRL-U in Insert mode. This is a list of items,
-                    " separated by commas. Each item allows a way to backspace
-                    " over something.
-
-set autoindent      " Copy indent from current line when starting a new line
-                    " (typing <CR> in Insert mode or when using the "o" or "O"
-                    " command).
-
-set textwidth=120    " Maximum width of text that is being inserted. A longer
-                    " line will be broken after white space to get this width.
-
-set formatoptions=c,q,r,t " This is a sequence of letters which describes how
+set formatoptions=c,q,r,t
+                    " This is a sequence of letters which describes how
                     " automatic formatting is to be done.
                     "
                     " letter    meaning when present in 'formatoptions'
@@ -122,6 +110,16 @@ set formatoptions=c,q,r,t " This is a sequence of letters which describes how
                     "           after hitting <Enter> in Insert mode.
                     " t         Auto-wrap text using textwidth (does not apply
                     "           to comments)
+
+set backspace=indent,eol,start
+                    " Influences the working of <BS>, <Del>, CTRL-W
+                    " and CTRL-U in Insert mode. This is a list of items,
+                    " separated by commas. Each item allows a way to backspace
+                    " over something.
+
+set autoindent      " Copy indent from current line when starting a new line
+                    " (typing <CR> in Insert mode or when using the "o" or "O"
+                    " command).
 
 set ruler           " Show the line and column number of the cursor position,
                     " separated by a comma.
@@ -305,3 +303,6 @@ au Syntax * if index(blacklist, &ft) < 0 | RainbowParenthesesLoadSquare
 nmap <Leader>i <Plug>(grammarous-fixit)<Plug>(grammarous-move-to-next-error)
 nmap <Leader>n <Plug>(grammarous-move-to-next-error)
 nmap <Leader>o <Plug>(grammarous-open-info-window)
+
+" set text wrap for text files
+autocmd BufRead,BufNewFile   *.md,*.txt,*.rst setlocal textwidth=79
