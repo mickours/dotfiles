@@ -305,4 +305,4 @@ nmap <Leader>n <Plug>(grammarous-move-to-next-error)
 nmap <Leader>o <Plug>(grammarous-open-info-window)
 
 " set text wrap for text files
-autocmd BufRead,BufNewFile   *.md,*.txt,*.rst setlocal textwidth=79
+autocmd BufRead,BufNewFile   *.md,*.txt,*.rst setlocal textwidth=79 spell
