@@ -3,7 +3,8 @@ filetype off                   " required!
 set encoding=utf-8
 
 " Setting up Vundle - the vim plugin bundler
-let iCanHazVundle=1
+" Set this to 1 tu launch vundle install
+let iCanHazVundle=0
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
     echo "Installing Vundle.."
