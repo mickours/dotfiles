@@ -4,52 +4,52 @@ set encoding=utf-8
 
 " Setting up Vundle - the vim plugin bundler
 " Set this to 1 tu launch vundle install
-let iCanHazVundle=0
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle.."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
-endif
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" My Bundles here:
-"
-" original repos on github
-Bundle 'vim-latex/vim-latex'
-Bundle 'kien/ctrlp.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'bling/vim-airline'
-Bundle 'scrooloose/syntastic'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'tpope/vim-fugitive'
-" Bundle 'klen/python-mode'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'xolox/vim-easytags'
-Bundle 'xolox/vim-misc'
-Bundle 'majutsushi/tagbar'
-Bundle 'Rykka/riv.vim'
-Bundle 'tmhedberg/SimpylFold'
-Bundle 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
-" Bundle 'nvie/vim-flake8'
-Bundle 'tell-k/vim-autopep8'
-Bundle 'chrisbra/csv.vim'
-Bundle 'jceb/vim-orgmode'
-Bundle 'tpope/vim-speeddating'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'sk1418/HowMuch'
-Bundle 'sjl/gundo.vim'
-Bundle 'LnL7/vim-nix'
-Bundle 'Chiel92/vim-autoformat'
-Bundle 'jpalardy/vim-slime'
-Bundle 'fatih/vim-go'
+" let iCanHazVundle=0
+" let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+" if !filereadable(vundle_readme)
+"     echo "Installing Vundle.."
+"     echo ""
+"     silent !mkdir -p ~/.vim/bundle
+"     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+"     let iCanHazVundle=0
+" endif
+" 
+" set rtp+=~/.vim/bundle/vundle/
+" call vundle#rc()
+" 
+" " My Bundles here:
+" "
+" " original repos on github
+" Bundle 'vim-latex/vim-latex'
+" Bundle 'kien/ctrlp.vim'
+" Bundle 'christoomey/vim-tmux-navigator'
+" Bundle 'bronson/vim-trailing-whitespace'
+" Bundle 'bling/vim-airline'
+" Bundle 'scrooloose/syntastic'
+" Bundle 'airblade/vim-gitgutter'
+" Bundle 'tpope/vim-fugitive'
+" " Bundle 'klen/python-mode'
+" Bundle 'scrooloose/nerdcommenter'
+" Bundle 'scrooloose/nerdtree'
+" Bundle 'xolox/vim-easytags'
+" Bundle 'xolox/vim-misc'
+" Bundle 'majutsushi/tagbar'
+" Bundle 'Rykka/riv.vim'
+" Bundle 'tmhedberg/SimpylFold'
+" Bundle 'vim-scripts/indentpython.vim'
+" Bundle 'Valloric/YouCompleteMe'
+" " Bundle 'nvie/vim-flake8'
+" Bundle 'tell-k/vim-autopep8'
+" Bundle 'chrisbra/csv.vim'
+" Bundle 'jceb/vim-orgmode'
+" Bundle 'tpope/vim-speeddating'
+" Bundle 'terryma/vim-multiple-cursors'
+" Bundle 'sk1418/HowMuch'
+" Bundle 'sjl/gundo.vim'
+" Bundle 'LnL7/vim-nix'
+" Bundle 'Chiel92/vim-autoformat'
+" Bundle 'jpalardy/vim-slime'
+" Bundle 'fatih/vim-go'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -163,12 +163,12 @@ syntax on
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
-
-if iCanHazVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    :BundleInstall
-endif
+"
+" if iCanHazVundle == 0
+"     echo "Installing Bundles, please ignore key map error messages"
+"     echo ""
+"     :BundleInstall
+" endif
 
 set showmode
 
