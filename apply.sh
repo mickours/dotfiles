@@ -6,7 +6,7 @@
 
 ###############
 # install dependencies
-sudo pacman -S --noconfirm --needed zsh grml-zsh-config tmux gvim ctags ranger
+# sudo pacman -S --noconfirm --needed zsh grml-zsh-config tmux gvim ctags ranger
 
 ###############
 # install config files in $HOME
@@ -18,7 +18,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd
 
 # install grml zsh config
-curl https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc > .zshrc
+wget -O - https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc > .zshrc
 
 # make links at home
 DOTFILES="tmux.conf vimrc zshrc.local ctags python_startup.py gitconfig inputrc"
