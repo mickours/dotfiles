@@ -303,6 +303,13 @@ au Syntax * if index(blacklist, &ft) < 0 | RainbowParenthesesLoadSquare
 nmap <Leader>i <Plug>(grammarous-fixit)<Plug>(grammarous-move-to-next-error)
 nmap <Leader>n <Plug>(grammarous-move-to-next-error)
 nmap <Leader>o <Plug>(grammarous-open-info-window)
+let g:grammarous#use_vim_spelllang = 1
 
 " set text wrap for text files
-autocmd BufRead,BufNewFile   *.md,*.txt,*.rst setlocal textwidth=79 spell
+autocmd BufRead,BufNewFile *.md,*.txt,*.rst,*.tex call setTextMode()
+function setTextMode()
+    setlocal textwidth=79
+    setlocal spelllang=en
+    setlocal spell
+endfunction
+
