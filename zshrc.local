@@ -2,7 +2,7 @@
 #source ~/.config/zsh/grml-config
 
 # Archlinux update
-alias maj='yaourt -Suya'
+alias maj='sudo nixos-rebuild switch --upgrade'
 
 # Start ranger file navigator
 alias r='ranger'

@@ -308,7 +308,7 @@ let g:grammarous#use_vim_spelllang = 1
 
 " set text wrap for text files
 autocmd BufRead,BufNewFile *.md,*.txt,*.rst,*.tex call setTextMode()
-function setTextMode()
+function s:setTextMode()
     setlocal textwidth=79
     setlocal spelllang=en
     setlocal spell
