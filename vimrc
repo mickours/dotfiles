@@ -307,7 +307,7 @@ nmap <Leader>o <Plug>(grammarous-open-info-window)
 let g:grammarous#use_vim_spelllang = 1
 
 " set text wrap for text files
-autocmd BufRead,BufNewFile *.md,*.txt,*.rst,*.tex call setTextMode()
+autocmd BufRead,BufNewFile *.md,*.txt,*.rst,*.tex call s:setTextMode()
 function s:setTextMode()
     setlocal textwidth=79
     setlocal spelllang=en
