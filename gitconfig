@@ -24,6 +24,7 @@
   # Quicker status
 
 	l = log --pretty=format:'%C(auto,yellow)%h%C(auto,magenta) %C(auto,blue)%ad %C(auto,green)%aN %C(auto,reset)%s%C(auto)% gD%d' --graph --date=format:'%Y-%m-%d %H:%M:%S'
+	yolo = !git commit -m \"$(curl -s whatthecommit.com/index.txt)\"
   # Prettier logs
 
 [merge]
