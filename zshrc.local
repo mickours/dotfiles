@@ -69,3 +69,7 @@ compinit
 # import direnv hook
 eval "$(direnv hook zsh)"
 
+# get realpath of an executable
+rp() {
+    realpath $(which $1)
+}
