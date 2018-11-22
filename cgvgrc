@@ -1,0 +1,5 @@
+# Search all files
+SEARCH=.*
+
+# But these ones:
+EXCLUDE=\.git%
