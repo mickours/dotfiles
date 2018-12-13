@@ -73,3 +73,8 @@ eval "$(direnv hook zsh)"
 rp() {
     realpath $(which $1)
 }
+
+# ctrl-A goes to the beginning of the line even in vim mode
+bindkey "^A" vi-beginning-of-line
+# ctrl-E goes to the ending of the line even in vim mode
+bindkey "^E" vi-end-of-line
