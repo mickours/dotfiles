@@ -342,3 +342,20 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Use tab to trigger auto completion.  Default suggests completions as you type.
 let g:completor_auto_trigger = 0
 inoremap <expr> <Tab> Tab_Or_Complete()
+
+" Language Client config
+let g:LanguageClient_serverCommands = {
+ \ 'python': ['pyls'
+ \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+ \ 'go': ['go-langserver'],
+ \ 'c' : ['clangd'] }
+
+nnoremap <leader> c :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> gr :call LanguageClient_textDocument_references()<CR>
+nnoremap <silent> gs :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <silent> ge :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<CR>
+
+let g:LanguageClient_signColumnAlwaysOn = 1

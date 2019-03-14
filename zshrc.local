@@ -78,3 +78,6 @@ rp() {
 bindkey "^A" vi-beginning-of-line
 # ctrl-E goes to the ending of the line even in vim mode
 bindkey "^E" vi-end-of-line
+
+# calculate using AWK, e.g. calc "10^2 + 12"
+calc(){ awk "BEGIN{ print $* }" ;};
