@@ -345,11 +345,14 @@ inoremap <expr> <Tab> Tab_Or_Complete()
 
 " Language Client config
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_signColumnAlwaysOn = 1
+
 let g:LanguageClient_serverCommands = {
-      \ 'python': ['pyls'],
-      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-      \ 'go': ['go-langserver'],
-      \ 'c' : ['clangd'] }
+  \ 'python': ['pyls'],
+  \ 'nix': ['nix-lsp'],
+  \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+  \ 'go': ['go-langserver'],
+  \ 'c' : ['clangd'] }
 
 nnoremap <leader> c :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
@@ -358,5 +361,3 @@ nnoremap <silent> gr :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> gs :call LanguageClient_textDocument_documentSymbol()<CR>
 nnoremap <silent> ge :call LanguageClient_textDocument_rename()<CR>
 nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<CR>
-
-let g:LanguageClient_signColumnAlwaysOn = 1
