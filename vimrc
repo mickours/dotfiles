@@ -345,7 +345,7 @@ inoremap <expr> <Tab> Tab_Or_Complete()
 
 " Language Client config
 let g:LanguageClient_serverCommands = {
- \ 'python': ['pyls'
+ \ 'python': ['pyls'],
  \ 'rust': ['rustup', 'run', 'stable', 'rls'],
  \ 'go': ['go-langserver'],
  \ 'c' : ['clangd'] }
