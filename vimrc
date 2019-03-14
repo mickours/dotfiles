@@ -344,11 +344,12 @@ let g:completor_auto_trigger = 0
 inoremap <expr> <Tab> Tab_Or_Complete()
 
 " Language Client config
+let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
- \ 'python': ['pyls'],
- \ 'rust': ['rustup', 'run', 'stable', 'rls'],
- \ 'go': ['go-langserver'],
- \ 'c' : ['clangd'] }
+      \ 'python': ['pyls'],
+      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+      \ 'go': ['go-langserver'],
+      \ 'c' : ['clangd'] }
 
 nnoremap <leader> c :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
