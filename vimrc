@@ -1,6 +1,7 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 set encoding=utf-8
+colorscheme sublimemonokai
 
 " Setting up Vundle - the vim plugin bundler
 " Set this to 1 tu launch vundle install
@@ -125,7 +126,7 @@ set autoindent      " Copy indent from current line when starting a new line
 set ruler           " Show the line and column number of the cursor position,
                     " separated by a comma.
 
-set background=dark " When set to "dark", Vim will try to use colors that look
+"set background=dark " When set to "dark", Vim will try to use colors that look
                     " good on a dark background. When set to "light", Vim will
                     " try to use colors that look good on a light background.
                     " Any other value is illegal.
@@ -134,10 +135,10 @@ set background=dark " When set to "dark", Vim will try to use colors that look
 nnoremap gV `[v`]   " highlight last inserted text
 
 "" better colors for menu in a dark theme
-highlight Pmenu ctermfg=Cyan ctermbg=Blue cterm=None guifg=Cyan guibg=DarkBlue
-highlight PmenuSel ctermfg=White ctermbg=Blue cterm=Bold guifg=White guibg=DarkBlue gui=Bold
-highlight PmenuSbar ctermbg=Cyan guibg=Cyan
-highlight PmenuThumb ctermfg=White guifg=White
+"highlight Pmenu ctermfg=Cyan ctermbg=Blue cterm=None guifg=Cyan guibg=DarkBlue
+"highlight PmenuSel ctermfg=White ctermbg=Blue cterm=Bold guifg=White guibg=DarkBlue gui=Bold
+"highlight PmenuSbar ctermbg=Cyan guibg=Cyan
+"highlight PmenuThumb ctermfg=White guifg=White
 
 
 set mouse=a         " Enable the use of the mouse.
@@ -364,6 +365,8 @@ let g:LanguageClient_serverCommands = {
   \ 'rust': ['rustup', 'run', 'stable', 'rls'],
   \ 'go': ['go-langserver'],
   \ 'c' : ['clangd'] }
+
+autocmd FileType python setlocal omnifunc=LanguageClient#complete
 
 nnoremap <leader> c :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
