@@ -3,65 +3,6 @@ filetype off                   " required!
 set encoding=utf-8
 colorscheme sublimemonokai
 
-" Setting up Vundle - the vim plugin bundler
-" Set this to 1 tu launch vundle install
-" let iCanHazVundle=0
-" let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-" if !filereadable(vundle_readme)
-"     echo "Installing Vundle.."
-"     echo ""
-"     silent !mkdir -p ~/.vim/bundle
-"     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-"     let iCanHazVundle=0
-" endif
-" 
-" set rtp+=~/.vim/bundle/vundle/
-" call vundle#rc()
-" 
-" " My Bundles here:
-" "
-" " original repos on github
-" Bundle 'vim-latex/vim-latex'
-" Bundle 'kien/ctrlp.vim'
-" Bundle 'christoomey/vim-tmux-navigator'
-" Bundle 'bronson/vim-trailing-whitespace'
-" Bundle 'bling/vim-airline'
-" Bundle 'scrooloose/syntastic'
-" Bundle 'airblade/vim-gitgutter'
-" Bundle 'tpope/vim-fugitive'
-" " Bundle 'klen/python-mode'
-" Bundle 'scrooloose/nerdcommenter'
-" Bundle 'scrooloose/nerdtree'
-" Bundle 'xolox/vim-easytags'
-" Bundle 'xolox/vim-misc'
-" Bundle 'majutsushi/tagbar'
-" Bundle 'Rykka/riv.vim'
-" Bundle 'tmhedberg/SimpylFold'
-" Bundle 'vim-scripts/indentpython.vim'
-" Bundle 'Valloric/YouCompleteMe'
-" " Bundle 'nvie/vim-flake8'
-" Bundle 'tell-k/vim-autopep8'
-" Bundle 'chrisbra/csv.vim'
-" Bundle 'jceb/vim-orgmode'
-" Bundle 'tpope/vim-speeddating'
-" Bundle 'terryma/vim-multiple-cursors'
-" Bundle 'sk1418/HowMuch'
-" Bundle 'sjl/gundo.vim'
-" Bundle 'LnL7/vim-nix'
-" Bundle 'Chiel92/vim-autoformat'
-" Bundle 'jpalardy/vim-slime'
-" Bundle 'fatih/vim-go'
-
-" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Bundle 'tpope/vim-rails.git'
-" vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-" ...
-
 " For multi-byte character support (CJK support, for example):
 "set fileencodings=ucs-bom,utf-8,cp936,big5,euc-jp,euc-kr,gb18030,latin1
 
@@ -99,7 +40,7 @@ set ignorecase      " Ignore case in search patterns.
 set smartcase       " Override the 'ignorecase' option if the search pattern
                     " contains upper case characters.
 
-set formatoptions=c,q,r,t
+set formatoptions=c,q,r
                     " This is a sequence of letters which describes how
                     " automatic formatting is to be done.
                     "
@@ -155,22 +96,6 @@ set shell=/bin/sh   " Needed by https://github.com/vim-syntastic/syntastic/issue
 
 filetype plugin indent on     " required!
 syntax on
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
-"
-" if iCanHazVundle == 0
-"     echo "Installing Bundles, please ignore key map error messages"
-"     echo ""
-"     :BundleInstall
-" endif
-
 set showmode
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
@@ -241,16 +166,6 @@ let g:flake8_show_in_gutter=1
 " YouCompleteMe customization
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-"python with virtualenv support
-"py << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"  execfile(activate_this, dict(__file__=activate_this))
-"EOF
 
 " make it pretty
 let python_highlight_all=1
