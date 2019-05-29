@@ -81,3 +81,7 @@ bindkey "^E" vi-end-of-line
 
 # calculate using AWK, e.g. calc "10^2 + 12"
 calc(){ awk "BEGIN{ print $* }" ;};
+
+export NIX_PATH=ryaxpkgs=$HOME/Projects/ryaxpkgs:$NIX_PATH
+
+alias k=kubetcl
