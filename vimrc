@@ -279,7 +279,8 @@ let g:LanguageClient_serverCommands = {
   \ 'nix': ['nix-lsp'],
   \ 'rust': ['rustup', 'run', 'stable', 'rls'],
   \ 'go': ['go-langserver'],
-  \ 'c' : ['clangd'] }
+  \ 'c' : ['clangd'],
+  \ 'cpp': ['cquery'] }
 
 autocmd FileType python setlocal omnifunc=LanguageClient#complete
 
