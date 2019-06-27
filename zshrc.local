@@ -84,4 +84,5 @@ calc(){ awk "BEGIN{ print $* }" ;};
 
 export NIX_PATH=ryaxpkgs=$HOME/Projects/ryaxpkgs:$NIX_PATH
 
-alias k=kubetcl
+alias k=kubectl
+alias f='vim $(fzf)'
