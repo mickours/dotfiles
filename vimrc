@@ -1,7 +1,14 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 set encoding=utf-8
-colorscheme sublimemonokai
+
+" colorscheme sublimemonokai
+"Gruvebox coloscheme better contrast
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_improved_warnings = 1
+let g:gruvbox_improved_strings = 1
+
+colorscheme gruvbox
 
 " For multi-byte character support (CJK support, for example):
 "set fileencodings=ucs-bom,utf-8,cp936,big5,euc-jp,euc-kr,gb18030,latin1
