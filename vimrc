@@ -298,3 +298,18 @@ nnoremap <silent> gr :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> gs :call LanguageClient_textDocument_documentSymbol()<CR>
 nnoremap <silent> ge :call LanguageClient_textDocument_rename()<CR>
 nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<CR>
+
+let g:airline#extensions#default#section_truncate_width = {
+      \ 'b': 79,
+      \ 'x': 60,
+      \ 'y': 88,
+      \ 'z': 45,
+      \ 'warning': 80,
+      \ 'error': 80,
+\ }
+
+" better Yaml checker
+let g:syntastic_yaml_checkers = ['yamllint']
+
+" good indentation for YAML
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab

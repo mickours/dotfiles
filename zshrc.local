@@ -86,3 +86,5 @@ export NIX_PATH=ryaxpkgs=$HOME/Projects/ryaxpkgs:$NIX_PATH
 
 alias k=kubectl
 alias f='vim $(fzf)'
+
+alias gp='git push'

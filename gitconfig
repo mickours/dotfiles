@@ -1,6 +1,6 @@
 [user]
-	email = michael.mercier@inria.fr
-	name = MERCIER Michael
+	email = michael.mercier@ryax.tech
+	name = Michael Mercier
 
 [alias]
   prune = fetch --prune
