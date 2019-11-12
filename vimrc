@@ -313,3 +313,5 @@ let g:syntastic_yaml_checkers = ['yamllint']
 
 " good indentation for YAML
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
+
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
