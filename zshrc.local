@@ -83,8 +83,101 @@ bindkey "^E" vi-end-of-line
 calc(){ awk "BEGIN{ print $* }" ;};
 
 alias k=kubectl
+alias kgp='kubectl get pods --all-namespaces'
 alias f='vim $(fzf)'
 
 alias gp='git push'
 alias gs='git status'
-alias gc='git cola'
+alias gg='gitg'
+
+export NIX_PATH=ryaxpkgs=$(realpath ~/Projects/ryax/ryaxpkgs/):$NIX_PATH
+
+alias main='cd ~/Projects/ryax'
+
+passrand(){ < /dev/urandom tr -dc "_\-*=#\!\%?A-Z-a-z1-9" | head -c${1:-16};echo;}
+
+### note.sh from https://github.com/pigmonkey/notes.sh
+
+NOTEDIR=~/Notes
+# Attempt to append the appropriate extension to a filename, preferring gpg
+# over txt.
+buildfile() {
+    # If an extension was given, use it.
+    if [[ "$1" == *.* ]]; then
+        echo "$1"
+    # If no extension was given...
+    else
+        # ... try the file without any extension.
+        if [ -e "$1" ]; then
+            echo "$1"
+        # ... try the file with a gpg extension.
+        elif [ -e "$1".gpg ]; then
+            echo "$1".gpg
+        # ... use a txt extension.
+        else
+            echo "$1".org
+        fi
+    fi
+}
+
+# Verify the note directory is defined and exists.
+init() {
+    if [ -z "$NOTEDIR" ]; then
+        echo '$NOTEDIR is undefined.'
+        return 2
+    fi
+    if [ ! -d "$NOTEDIR" ]; then
+        mkdir -p "$NOTEDIR"
+    fi
+}
+
+# Create or edit notes.
+n() {
+    if init; then
+        # If no note was given, list the notes.
+        if [ -z "$1" ]; then
+            ls -lhtr --color=always "$NOTEDIR"
+        # If a note was given, open it.
+        else
+            filepath="$(buildfile "$NOTEDIR"/"$1")"
+            filename=$(basename $filepath)
+            fileext=${filename##*.}
+            if echo "$NOTEXDGEXT" | grep -qw "$fileext"; then
+                xdg-open "$filepath"
+            else
+                $EDITOR "+normal G$" "$filepath"
+            fi
+        fi
+    else
+        return $?
+    fi
+}
+
+# Find a note by title.
+nf() {
+    if init; then
+        cd "$NOTEDIR"
+        find . -iname "*$1*"
+        cd "$OLDPWD"
+    else
+        return $?
+    fi
+}
+
+# Search within notes.
+ns() {
+    if init; then
+        cd "$NOTEDIR"
+        grep -rin --exclude-dir=.git --color=always "$1"
+        cd "$OLDPWD"
+    else
+        return $?
+    fi
+}
+
+# Set zsh autocompletion for notes.
+if [ -n "$ZSH_NAME" ]; then
+    compctl -W "$NOTEDIR" -f n
+fi
+
+### END note.sh

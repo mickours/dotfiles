@@ -145,37 +145,8 @@ nnoremap <silent> <C-Left> b
 set splitbelow
 set splitright
 
-" Turn off rope from Python plugin
-let g:pymode_rope = 0
-
-""""""" Riv config
-" Change Riv leader from C-e to !
-let g:riv_global_leader = ';'
-
-" Dont fold
-let g:riv_fold_auto_update = 0
-let g:riv_disable_folding = 0
-
-" Let the blank line at the fold end
-let g:riv_fold_blank = 0
-
 " Check spell for RST files
 autocmd BufNewFile,BufRead *.rst setlocal spell spelllang=en
-
-""""""" Python IDE config
-" Want to see the docstrings for folded code
-let g:SimpylFold_docstring_preview=1
-
-" Set Flake8 option and map
-let g:flake8_show_in_gutter=1
-"autocmd BufWritePost *.py call flake8#Flake8UnplaceMarkers()
-
-" YouCompleteMe customization
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" make it pretty
-let python_highlight_all=1
 
 autocmd BufNewFile,BufRead *.py call SetPythonOptions()
 function SetPythonOptions()
@@ -192,14 +163,6 @@ endfunction
 
 "autoformat
 noremap <Leader>f :Autoformat<CR><CR>
-
-" Make slime works for Tmux
-let g:slime_target="tmux"
-if $TMUX
-  let g:slime_default_config={"socket_name": split($TMUX, ",")[0], "target_pane": ":.2"}
-endif
-
-let g:slime_python_ipython=1
 
 " Better colors for spelling errors
 hi clear SpellBad
@@ -282,7 +245,7 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_signColumnAlwaysOn = 1
 
 let g:LanguageClient_serverCommands = {
-  \ 'python': ['pyls'],
+  \ 'python': ['python-language-server'],
   \ 'nix': ['nix-lsp'],
   \ 'rust': ['rustup', 'run', 'stable', 'rls'],
   \ 'go': ['go-langserver'],
@@ -291,7 +254,6 @@ let g:LanguageClient_serverCommands = {
 
 autocmd FileType python setlocal omnifunc=LanguageClient#complete
 
-nnoremap <leader> c :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> gr :call LanguageClient_textDocument_references()<CR>
