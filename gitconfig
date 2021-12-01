@@ -34,6 +34,7 @@
   # https://git-scm.com/docs/git-config#git-config-mergeff
 
   conflictstyle = diff3
+	tool = meld
   # Standard diff is two sets of final changes. This introduces the original text before each side's changes.
   # https://git-scm.com/docs/git-config#git-config-mergeconflictStyle
 
@@ -44,7 +45,7 @@
   # https://git-scm.com/docs/git-config#git-config-commitgpgSign
 
 [push]
-  default = simple
+	default = current
   # "push the current branch back to the branch whose changes are usually integrated into the current branch"
   # "refuse to push if the upstream branch’s name is different from the local one"
   # https://git-scm.com/docs/git-config#git-config-pushdefault
@@ -69,7 +70,7 @@
 # A nice little github-like colorful, split diff right in the console.
 # via http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
 [diff]
-	tool = vimdiff
+	tool = meld
 [difftool]
   prompt = false
 [difftool "icdiff"]
