@@ -58,9 +58,6 @@ docker volume ls -qf dangling=true | xargs --no-run-if-empty docker volume rm
 zle -N        edit-command-line
 bindkey -v '^V' edit-command-line
 
-# Add GO path
-export GOPATH=/home/mmercier/Projects/go
-
 # Add local completion settings
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit
@@ -86,13 +83,9 @@ alias k=kubectl
 alias kgp='kubectl get pods --all-namespaces'
 alias f='vim $(fzf)'
 
+alias gc='git cola'
 alias gp='git push'
 alias gs='git status'
-alias gg='gitg'
-
-export NIX_PATH=ryaxpkgs=$(realpath ~/Projects/ryax/ryaxpkgs/):$NIX_PATH
-
-alias main='cd ~/Projects/ryax'
 
 passrand(){ < /dev/urandom tr -dc "_\-*=#\!\%?A-Z-a-z1-9" | head -c${1:-16};echo;}
 
@@ -145,7 +138,7 @@ n() {
             if echo "$NOTEXDGEXT" | grep -qw "$fileext"; then
                 xdg-open "$filepath"
             else
-                $EDITOR "+normal G$" "$filepath"
+                emacs "$filepath"
             fi
         fi
     else
@@ -181,3 +174,8 @@ if [ -n "$ZSH_NAME" ]; then
 fi
 
 ### END note.sh
+
+# Disable extended glob to avoid escaping of #
+setopt no_extendedglob
+
+export PATH=~/.bin:$PATH
