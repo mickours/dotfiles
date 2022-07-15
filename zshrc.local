@@ -86,6 +86,7 @@ alias f='vim $(fzf)'
 alias gc='git cola'
 alias gp='git push'
 alias gs='git status'
+alias lg='lazygit'
 
 passrand(){ < /dev/urandom tr -dc "_\-*=#\!\%?A-Z-a-z1-9" | head -c${1:-16};echo;}
 
