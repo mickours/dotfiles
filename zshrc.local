@@ -79,12 +79,20 @@ bindkey "^E" vi-end-of-line
 # calculate using AWK, e.g. calc "10^2 + 12"
 calc(){ awk "BEGIN{ print $* }" ;};
 
+# Kubernetes allias
 alias k=kubectl
 alias kgp='kubectl get pods --all-namespaces'
-alias f='vim $(fzf)'
+kclean(){
+    kubectl get pods --all-namespaces | grep -E OutOfcpu\|Evicted\|Completed\|OOMKilled\|Error\|ContainerStatusUnknown | awk '{print "kubectl delete po " $2 " -n " $1 }' | bash
+}
 
-alias gc='git cola'
+# find files
+alias f='cd ././$(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
+
+alias gco='git cola'
 alias gp='git push'
+alias gpl='git pull'
+alias gco='git checkout'
 alias gs='git status'
 alias lg='lazygit'
 
