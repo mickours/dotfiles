@@ -1,9 +1,3 @@
-# Use Grml zsh config with git unstash chages shown
-#source ~/.config/zsh/grml-config
-
-# Archlinux update
-alias maj='sudo nixos-rebuild switch --upgrade'
-
 # Start ranger file navigator
 alias r='ranger'
 
@@ -13,17 +7,6 @@ alias gr='grep --color=auto -Rn'
 # use htop instead of top
 alias top='htop'
 
-function mydu(){
-du -x --max-depth=1 | sort -rn | \
-  awk -F / -v c=$COLUMNS 'NR==1{t=$1} NR>1{r=int($1/t*c+.5); b="\033[1;31m"; for (i=0; i<r; i++) b=b"#"; printf " %5.2f%% %s\033[0m %s\n", $1/t*100, b, $2}'| tac
-}
-
-# colored bar graph du
-alias d='mydu'
-
-# Add local gem to PATH (use only in --user-install mode)
-# export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-#
 
 _ranger () {
  command ranger "$(pwd)" <$TTY
@@ -35,25 +18,6 @@ _ranger () {
 zle -N _ranger
 bindkey -v '^N' _ranger
 
-function docker-clean (){
-# Delete all stopped containers (including data-only containers).
-docker ps -a -q --no-trunc --filter "status=exited" | xargs --no-run-if-empty docker rm -v
-
-# Delete all tagged images more than a month old
-# (will fail to remove images still used).
-docker images --no-trunc --format '{{.ID}} {{.CreatedSince}}' | grep ' months' | awk '{ print $1 }' | xargs --no-run-if-empty docker rmi || true
-
-# Delete all 'untagged/dangling' (<none>) images
-# Those are used for Docker caching mechanism.
-docker images -q --no-trunc --filter dangling=true | xargs --no-run-if-empty docker rmi
-
-# Delete all dangling volumes.
-docker volume ls -qf dangling=true | xargs --no-run-if-empty docker volume rm
-}
-
-# Python startup script:
-#export PYTHONSTARTUP=~/.python_startup.py
-
 # Permit line edit in vim :)
 zle -N        edit-command-line
 bindkey -v '^V' edit-command-line
@@ -62,9 +26,6 @@ bindkey -v '^V' edit-command-line
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit
 compinit
-
-# import direnv hook
-eval "$(direnv hook zsh)"
 
 # get realpath of an executable
 rp() {
@@ -98,93 +59,14 @@ alias lg='lazygit'
 
 passrand(){ < /dev/urandom tr -dc "_\-*=#\!\%?A-Z-a-z1-9" | head -c${1:-16};echo;}
 
-### note.sh from https://github.com/pigmonkey/notes.sh
-
-NOTEDIR=~/Notes
-# Attempt to append the appropriate extension to a filename, preferring gpg
-# over txt.
-buildfile() {
-    # If an extension was given, use it.
-    if [[ "$1" == *.* ]]; then
-        echo "$1"
-    # If no extension was given...
-    else
-        # ... try the file without any extension.
-        if [ -e "$1" ]; then
-            echo "$1"
-        # ... try the file with a gpg extension.
-        elif [ -e "$1".gpg ]; then
-            echo "$1".gpg
-        # ... use a txt extension.
-        else
-            echo "$1".org
-        fi
-    fi
-}
-
-# Verify the note directory is defined and exists.
-init() {
-    if [ -z "$NOTEDIR" ]; then
-        echo '$NOTEDIR is undefined.'
-        return 2
-    fi
-    if [ ! -d "$NOTEDIR" ]; then
-        mkdir -p "$NOTEDIR"
-    fi
-}
-
-# Create or edit notes.
-n() {
-    if init; then
-        # If no note was given, list the notes.
-        if [ -z "$1" ]; then
-            ls -lhtr --color=always "$NOTEDIR"
-        # If a note was given, open it.
-        else
-            filepath="$(buildfile "$NOTEDIR"/"$1")"
-            filename=$(basename $filepath)
-            fileext=${filename##*.}
-            if echo "$NOTEXDGEXT" | grep -qw "$fileext"; then
-                xdg-open "$filepath"
-            else
-                emacs "$filepath"
-            fi
-        fi
-    else
-        return $?
-    fi
-}
-
-# Find a note by title.
-nf() {
-    if init; then
-        cd "$NOTEDIR"
-        find . -iname "*$1*"
-        cd "$OLDPWD"
-    else
-        return $?
-    fi
-}
-
-# Search within notes.
-ns() {
-    if init; then
-        cd "$NOTEDIR"
-        grep -rin --exclude-dir=.git --color=always "$1"
-        cd "$OLDPWD"
-    else
-        return $?
-    fi
-}
-
-# Set zsh autocompletion for notes.
-if [ -n "$ZSH_NAME" ]; then
-    compctl -W "$NOTEDIR" -f n
-fi
-
-### END note.sh
-
 # Disable extended glob to avoid escaping of #
 setopt no_extendedglob
 
 export PATH=~/.bin:$PATH
+
+alias ll='exa -lar --sort newest'
+alias l='exa -lr --sort newest'
+
+# Increase History size
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
