@@ -33,7 +33,7 @@ done
 # install config directories in ~/.config
 
 # import configs
-CONFIG_DIR="zsh"
+CONFIG_DIR="zsh zeliji"
 
 mkdir -p ~/.config
 for conf_dir in $CONFIG_DIR

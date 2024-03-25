@@ -84,3 +84,7 @@
 	fsckobjects = false
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main
+[mergetool "meld"]
+	path = /run/current-system/sw/bin/meld

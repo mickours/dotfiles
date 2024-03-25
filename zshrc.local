@@ -70,3 +70,5 @@ alias l='exa -lr --sort newest'
 # Increase History size
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
+
+eval "$(zoxide init zsh)"
