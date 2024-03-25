@@ -3,3 +3,4 @@ config/zsh/.zshenv
 config/zsh/.zshrc
 config/zsh/.zsh_history
 config/zsh/.zdirs
+config/zsh/.cache
