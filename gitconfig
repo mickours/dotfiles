@@ -26,6 +26,15 @@
 	l = log --pretty=format:'%C(auto,yellow)%h%C(auto,magenta) %C(auto,blue)%ad %C(auto,green)%aN %C(auto,reset)%s%C(auto)% gD%d' --graph --date=format:'%Y-%m-%d %H:%M:%S'
 	yolo = !git commit -m \"$(curl -s whatthecommit.com/index.txt)\"
   # Prettier logs
+## Adding Delta as a diff tool
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  side-by-side = true
+  line-numbers = true
 
 [merge]
   ff = only
@@ -33,8 +42,8 @@
   # Note: this global option applies to all merges, including those done during a git pull
   # https://git-scm.com/docs/git-config#git-config-mergeff
 
-  conflictstyle = diff3
-	tool = meld
+  conflictstyle = zdiff3
+  tool = meld
   # Standard diff is two sets of final changes. This introduces the original text before each side's changes.
   # https://git-scm.com/docs/git-config#git-config-mergeconflictStyle
 
