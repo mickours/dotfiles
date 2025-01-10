@@ -46,6 +46,8 @@ calc(){ awk "BEGIN{ print $* }" ;};
 # Kubernetes allias
 alias k=kubectl
 alias kgp='kubectl get pods --all-namespaces'
+alias kr='kubectl get pods --namespace ryaxns'
+alias kre='kubectl get pods --namespace ryaxns-execs'
 kclean(){
     kubectl get pods --all-namespaces | grep -E OutOfcpu\|Evicted\|Completed\|OOMKilled\|Error\|ContainerStatusUnknown | awk '{print "kubectl delete po " $2 " -n " $1 }' | bash
 }
@@ -53,9 +55,8 @@ kclean(){
 # find files
 alias f='cd ././$(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
 
-alias gco='git cola'
 alias gp='git push'
-alias gpl='git pull'
+alias gu='git pull'
 alias gco='git checkout'
 alias gs='git status'
 alias lg='lazygit'
