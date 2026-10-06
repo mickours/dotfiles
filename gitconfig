@@ -97,3 +97,6 @@
 	defaultBranch = main
 [mergetool "meld"]
 	path = /run/current-system/sw/bin/meld
+[credential]
+	helper = cache --timeout 7200
+	helper = oauth

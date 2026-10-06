@@ -1,5 +1,5 @@
 # Start ranger file navigator
-alias r='ranger'
+alias r='yazi'
 
 # search for something
 alias gr='grep --color=auto -Rn'
@@ -7,19 +7,8 @@ alias gr='grep --color=auto -Rn'
 # use htop instead of top
 alias top='htop'
 
-# Poetry shell
-alias psh="poetry shell"
-
-
-_ranger () {
- command ranger "$(pwd)" <$TTY
- print -n "\033[A"
- zle && zle -I
- cd "$(grep \^\' ~/.config/ranger/bookmarks | cut -b3-)"
-}
-
-zle -N _ranger
-bindkey -v '^N' _ranger
+# Use helix instead of vim
+alias v='hx'
 
 # Permit line edit in vim :)
 zle -N        edit-command-line
@@ -55,8 +44,8 @@ kclean(){
 # find files
 alias f='cd ././$(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
 
-alias gp='git push'
-alias gu='git pull'
+alias gP='git push'
+alias gp='git pull'
 alias gco='git checkout'
 alias gs='git status'
 alias lg='lazygit'
@@ -68,11 +57,18 @@ setopt no_extendedglob
 
 export PATH=~/.bin:$PATH
 
-alias ll='exa -lar --sort newest'
-alias l='exa -lr --sort newest'
+alias ll='eza -lar --sort newest'
+alias l='eza -lr --sort newest'
 
 # Increase History size
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 
 PATH=$PATH:$HOME/.local/bin
+
+# Load powerlevel10k
+source ~/.local/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Load Nix
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh

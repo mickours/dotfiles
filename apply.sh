@@ -21,7 +21,7 @@ cd
 wget -O - https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc > .zshrc
 
 # make links at home
-DOTFILES="tmux.conf vimrc zshrc.local ctags python_startup.py gitconfig inputrc cgvgrc"
+DOTFILES="tmux.conf vimrc zshrc.local ctags python_startup.py gitconfig inputrc cgvgrc p10k.zsh"
 
 for files in $DOTFILES
 do
@@ -33,7 +33,7 @@ done
 # install config directories in ~/.config
 
 # import configs
-CONFIG_DIR="zsh zellij"
+CONFIG_DIR="zsh zellij helix"
 
 mkdir -p ~/.config
 for conf_dir in $CONFIG_DIR

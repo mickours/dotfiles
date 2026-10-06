@@ -1,0 +1,21 @@
+[[language]]
+auto-format = true
+file-types = ["nix"]
+name = "nix"
+
+[language.formatter]
+command = "/nix/store/nsj69kqd45ij8fblnhspwwhhp3sk5cwf-nixfmt-1.5.0/bin/nixfmt"
+
+[[language]]
+auto-format = true
+name = "python"
+
+[language-server.nil]
+command = "/nix/store/0g7v6ryrlmxvdmfiyvjnvjf7fmgzr8n9-nil-2026-07-23/bin/nil"
+
+[language-server.nil.config]
+rootPatterns = ["flake.nix"]
+
+[language-server.typescript-language-server]
+args = ["--stdio", "--tsserver-path=/nix/store/8sn9azppydd6yax68013401q20ja7x9l-typescript-7.0.2/lib/node_modules/typescript/lib"]
+command = "/nix/store/cw4grxqx50gfim3sv3czn9jzhfk54c8g-typescript-language-server-5.3.0/bin/typescript-language-server"
