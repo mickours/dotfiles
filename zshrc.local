@@ -66,9 +66,12 @@ export HISTSIZE=1000000000
 
 PATH=$PATH:$HOME/.local/bin
 
-# Load powerlevel10k
-source ~/.local/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Non-NixOS setup (NixOS handles these through its own configuration)
+if [[ ! -e /etc/NIXOS ]]; then
+  # Load powerlevel10k
+  source ~/.local/powerlevel10k/powerlevel10k.zsh-theme
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Load Nix
-. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+  # Load Nix
+  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+fi
